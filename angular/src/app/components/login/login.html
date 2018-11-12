@@ -3,12 +3,12 @@
   <nz-form-item>
     <label for="username">Username</label>
     <!-- TODO data-binding -->
-    <input type="text" nz-input name="username" #username="ngModel" />
+    <input type="text" nz-input name="username" [(ngModel)]="model.username" #username="ngModel" />
   </nz-form-item>
   <nz-form-item>
     <label for="password">Mot de Passe</label>
     <!-- TODO data-binding -->
-    <input type="password" nz-input name="password" #password="ngModel" />
+    <input type="password" nz-input name="password" [(ngModel)]="model.password" #password="ngModel" />
   </nz-form-item>
   <div class="actions">
     <button [disabled]="loading" nz-button nzType="primary">Se Connecter</button>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserLogin } from 'models';
-import { AuthenticationService } from '../../services/index';
+import { UserLogin, AuthenticatedUser } from 'models';
+import { AuthenticationService,  } from '../../services/index';
 
 /**
  * Connecte un utilisateur à la plateforme
@@ -21,8 +21,19 @@ export class LoginComponent {
     async login() {
         this.failed = false;
         try {
+            let promiseAuthdUser:  Promise<AuthenticatedUser>;
+
             // TODO utiliser authService en async/await pour authentifier l'utilisateur
-            // TODO redirection sur "/"
+            promiseAuthdUser = this.authService.authenticate({
+                username: this.model.username,
+                password: this.model.password
+            });
+
+            promiseAuthdUser
+                .then(() => {
+                    // TODO redirection sur "/"
+                    this.router.navigate(["/"]);
+                });
         }
         catch (e) {
             return this.failed = true;

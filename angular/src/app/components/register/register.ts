@@ -28,7 +28,17 @@ export class RegisterComponent {
         if (this.ngForm.form.invalid) {
             return;
         }
+
+        let newUser : UserRegistration = {
+            username: this.model.username,
+            password: this.model.password,
+            email: this.model.email,
+            pictureUrl: this.model.pictureUrl
+        };
+        
         // TODO utiliser registrationService pour ajouter un nouvel utilisateur
+        this.registrationService.register(newUser);
         // TODO utiliser this.router.navigate pour rediriger l'utilisateur vers la page de login
+        this.router.navigate(["/login"]);
     }
 }
