@@ -32,7 +32,12 @@ export class AddChannelComponent {
     async save() {
         if (this.ngForm.valid) {
             // TODO ajouter le nouveau channel
-            this.hide();
+            this.channelService.add(this.model.name)
+            .then((value)=>
+            {
+                
+            });
+            this.show();
         }
     }
 }

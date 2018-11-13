@@ -24,27 +24,27 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 #### Level I
 
-1. Faire le formulaire pour l'ajout d'un user
-2. Rendre username et le mot de passe obligatoire
-3. En cas de succès, rediriger l'utilisateur sur /login
+1. Faire le formulaire pour l'ajout d'un user ✓
+2. Rendre username et le mot de passe obligatoire ✓
+3. En cas de succès, rediriger l'utilisateur sur /login ✓
 
 #### Level II
-4. Afficher les messages d'erreurs de validation pour le mot de passe
-5. Vérifier si le username est disponible. Informer l'utilisateur de l'indisponibilité d'un username.
+4. Afficher les messages d'erreurs de validation pour le mot de passe ✓
+5. Vérifier si le username est disponible. Informer l'utilisateur de l'indisponibilité d'un username. ✓
 
 
 ### Login
 
 #### Level I
 
-1. Faire le formulaire de login
-2. Rendre username et le mot de passe obligatoire
-3. Rediriger l'utilisateur sur "/" en cas de succès
+1. Faire le formulaire de login ✓
+2. Rendre username et le mot de passe obligatoire ✓
+3. Rediriger l'utilisateur sur "/" en cas de succès ✓
 
 #### Level II
 
-4. Afficher les messages d'erreurs de validation pour chaque champs
-5. Afficher un message si le login à échoué
+4. Afficher les messages d'erreurs de validation pour chaque champs ✓
+5. Afficher un message si le login à échoué ✓
 
 
 ### Channel
@@ -118,7 +118,7 @@ Le clic doit rediriger sur le bon channel et scroller jusqu'au post concerné
 La base de donnée Neo4j n'a pas été lancée
 
 > Failed to load resource: net::ERR_CONNECTION_REFUSED
-Le serveur ```node-social-server``` n'a pas été lancé
+Le serveur ``d``` n'a pas été lancé
 
 > EXCEPTION: Uncaught (in promise): Response with status: 401 Unauthorized
 Le client n'a pas été authentifié
