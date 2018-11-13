@@ -51,13 +51,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 #### Level I
 
-1. Afficher la liste des channels dans le menu
-2. Naviguer sur un channel au clic dans le menu
+1. Afficher la liste des channels dans le menu ✓
+2. Naviguer sur un channel au clic dans le menu ✓
 
 #### Level II
 
-3. Pouvoir créer un nouveau channel
-4. Sélectionner par défaut le premier channel de la liste
+3. Pouvoir créer un nouveau channel ✓
+4. Sélectionner par défaut le premier channel de la liste ✓ 
 5. Ajouter ajouter les nouveaux channels dynamiquement
 
 ### Post

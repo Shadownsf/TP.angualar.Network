@@ -1,9 +1,5 @@
 <button nz-button nzType="primary" (click)="show()">Add channel</button>
 
-<li *ngFor="let channel of listChannel" >
-  <a [routerLink]="[channel.id]" class="btn btn-link">{{channel.name}} <span *ngIf="isVisible">default</span> </a>
-</li>
-
 <nz-modal [(nzVisible)]="isVisible" nzTitle="Nouveau Channel" nzOkText="Ok" nzCancelText="Cancel" (nzOnOk)="save()"
   (nzOnCancel)="hide()">
 
