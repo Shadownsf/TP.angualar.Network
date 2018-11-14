@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Post } from 'models';
+import { Post, Comment } from 'models';
 import { PostService, PostSocketService, LoggedUser, MessageParser } from 'services';
 
 /**
@@ -22,11 +22,15 @@ export class PostComponent {
     ngOnInit() {
         // détermine le bon type de contenu
         this.post.content = this.parser.parse(this.post);
+        this.postSocket.onComment((comment: Comment) => {
+            this.post.comments.push(comment);
+            console.log('post ngOnInit',comment)
+        })
     }
 
 
-    
+
     onComment(message: string) {
-        // TODO envoyer le message
+        this.postService.comment(this.post, message);
     }
 }
