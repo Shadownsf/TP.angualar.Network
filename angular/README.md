@@ -58,7 +58,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 3. Pouvoir créer un nouveau channel ✓
 4. Sélectionner par défaut le premier channel de la liste ✓
-5. Ajouter ajouter les nouveaux channels dynamiquement
+5. Ajouter ajouter les nouveaux channels dynamiquement ✓
 
 ### Post
 

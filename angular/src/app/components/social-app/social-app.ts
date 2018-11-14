@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Channel } from 'models';
-import { ChannelService } from 'services';
+import { PostSocketService,ChannelService } from 'services';
 import { ActivatedRoute, Router } from '@angular/router';
 
 /**
@@ -16,6 +16,7 @@ export class SocialAppComponent implements OnInit {
 
     constructor(
         private channelService: ChannelService,
+        private postSocket: PostSocketService,
         private route: ActivatedRoute,
         private router: Router
     ) {
@@ -28,13 +29,10 @@ export class SocialAppComponent implements OnInit {
                 this.channels = value;
                 this.router.navigate(["/channel/" + value[0].id]);
             });
-        // this.route.firstChild.params permet de connaître les paramètre de l'url
-    }
 
-    OnAddChannel() {
-        this.channelService.getAll()
-            .then((value)=> {
-                this.channels = value;
-            });
+        this.postSocket.onNewChannel((channel:Channel)=>{
+            this.channels.push(channel);
+        });
+        // this.route.firstChild.params permet de connaître les paramètre de l'url
     }
 }
