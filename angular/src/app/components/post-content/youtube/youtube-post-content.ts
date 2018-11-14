@@ -7,11 +7,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class YoutubeFeedContentComponent {
     @Input() postContent: YoutubePostContent;
+    
     constructor(
-        private sanitizer: DomSanitizer
+        private sanitizer: DomSanitizer,
     ) { }
 
-    get url() {
+    get url(){
         return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.postContent.value.videoId);
     }
 }
