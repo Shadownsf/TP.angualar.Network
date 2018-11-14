@@ -1,9 +1,9 @@
 <!-- TODO afficher le message -->
 <div class="header">
-    <div class="user-picture">
-        <!-- TODO utiliser le composant user-profile-picture -->
-        <user-profile-picture></user-profile-picture>
-    </div>
+        <div class="user-picture">
+            <!-- TODO utiliser le composant user-profile-picture -->
+            <user-profile-picture [src]="comment.user.pictureUrl"></user-profile-picture>
+        </div>
     <div class="username">
         <!-- afficher le nom -->
         <label>{{comment.user.username}}</label>
@@ -11,14 +11,6 @@
         <div class="date">
         <!-- afficher la date avec le pipe date -->
         <label>{{comment.creationTime | date}}</label>
-        </div>
-    </div>
-    <div class="right">
-        <div class="actions">
-        <!-- TODO liker au clic -->
-        <a [class.liked]="comment.liked">
-            <fa-icon [icon]="[comment.liked ? 'fas' : 'far', 'heart']" size="2x"></fa-icon>
-        </a>
         </div>
     </div>
     </div>
