@@ -57,17 +57,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 #### Level II
 
 3. Pouvoir créer un nouveau channel ✓
-4. Sélectionner par défaut le premier channel de la liste ✓ 
+4. Sélectionner par défaut le premier channel de la liste ✓
 5. Ajouter ajouter les nouveaux channels dynamiquement
 
 ### Post
 
 ### Level I
 
-1. Afficher les posts reçues pour le channel courant
-2. Afficher l'auteur des messages
-3. Afficher la date du posts
-4. Insérer les nouveaux posts reçues via WebSocket
+1. Afficher les posts reçues pour le channel courant ✓
+2. Afficher l'auteur des messages ✓
+3. Afficher la date du posts ✓
+4. Insérer les nouveaux posts reçues via WebSocket ✓
 5. Afficher une image si le message contient une url vers une image
 6. Afficher une video si le message contient une url vers une vidéo (https://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4)
 7. Afficher le player de youtube si le message contient un lien youtube

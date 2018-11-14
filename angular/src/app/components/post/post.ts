@@ -25,7 +25,7 @@ export class PostComponent {
     }
 
 
-
+    
     onComment(message: string) {
         // TODO envoyer le message
     }
