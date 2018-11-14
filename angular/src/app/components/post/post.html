@@ -34,7 +34,7 @@
     <nz-collapse-panel [nzHeader]="post.comments.length +' commentaire' + (post.comments.length > 1 ? 's' : '')">
         <!-- TODO afficher le liste des posts avec post-component -->
         <li *ngFor="let comment of post.comments">
-          <post-comment></post-comment>
+          <post-comment [comment]="comment"></post-comment>
         </li>
     </nz-collapse-panel>
   </nz-collapse>
