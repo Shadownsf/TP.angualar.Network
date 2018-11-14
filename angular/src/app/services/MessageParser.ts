@@ -19,10 +19,9 @@ export class MessageParser {
         const pictureMatche = pictureRegex.exec(post.message);
         if (pictureMatche) {
             // retourner une instance de PicturePostContent
-            console.log("its a picture : ", pictureMatche[0]);
-            let temp = new PicturePostContent(pictureMatche[0]);
-            console.log(temp.type,temp.value);
-            return temp;
+            //console.log("its a picture : ", pictureMatche[0]);
+            //post.message.replace(pictureMatche[0],'');
+            return new PicturePostContent(pictureMatche[0]);
             
         }
 
@@ -39,7 +38,9 @@ export class MessageParser {
         if (youtubeMatche) {
             // retourner une instance de YoutubePostContent si match
             console.log("its a youtube video !",youtubeMatche[2]);
-            return new VideoPostContent(youtubeMatche[2])
+            //let temp =new YoutubePostContent(youtubeMatche[2]);
+            //console.log(temp);
+            return new YoutubePostContent(youtubeMatche[2]);
         }
         return null;
     }
