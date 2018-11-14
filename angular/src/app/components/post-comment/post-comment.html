@@ -1,1 +1,32 @@
 <!-- TODO afficher le message -->
+<div class="header">
+    <div class="user-picture">
+        <!-- TODO utiliser le composant user-profile-picture -->
+        <user-profile-picture></user-profile-picture>
+    </div>
+    <div class="username">
+        <!-- afficher le nom -->
+        <label>{{comment.user.username}}</label>
+    
+        <div class="date">
+        <!-- afficher la date avec le pipe date -->
+        <label>{{comment.creationTime | date}}</label>
+        </div>
+    </div>
+    <div class="right">
+        <div class="actions">
+        <!-- TODO liker au clic -->
+        <a [class.liked]="comment.liked">
+            <fa-icon [icon]="[comment.liked ? 'fas' : 'far', 'heart']" size="2x"></fa-icon>
+        </a>
+        </div>
+    </div>
+    </div>
+    <div class="body">
+    <pre class="message">
+        <label>{{comment.message}}</label>
+    </pre>
+    <div *ngIf="comment.content">
+        <!-- afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
+    </div>
+</div>

@@ -83,10 +83,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Commentaires
 
 ### Level I
-1. Pouvoir commenter un post
-2. Afficher les commentaires d'un post 
-3. Afficher l'auteur du commentaires
-4. Insérer les nouveaux commentaires reçues via WebSocket
+1. Pouvoir commenter un post ✓
+2. Afficher les commentaires d'un post ✓
+3. Afficher l'auteur du commentaires ✓
+4. Insérer les nouveaux commentaires reçues via WebSocket ✓
 
 ### Level II
 5. Parser les commentaires comme les posts : extraire les images, vidéos...
