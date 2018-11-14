@@ -1,6 +1,10 @@
 <div class="social-app-feed">
     <!-- itérer sur les posts et les afficher avec le composant post -->
+    <li *ngFor="let post of items" >
+        <post [post]="post"></post>
+    </li>
 </div>
+
 <div class="social-app-inputs">
     <user-inputs (submitted)="onSubmit($event)" [channelId]="channelId"></user-inputs>
 </div>
@@ -23,4 +27,7 @@
         border-top: 1px solid #d6d6d6;
         height: 150px;
     }
+    li {
+    list-style-type: none;
+  }
 </style>
