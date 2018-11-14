@@ -11,7 +11,7 @@ export class PostSocketService {
     }
 
     /**
-     * S'abonner au nouveau channel créer
+     * S'abonner au nouveau channel créé
      * @param callback 
      */
     onNewChannel(callback: (channel: Channel) => void) {
