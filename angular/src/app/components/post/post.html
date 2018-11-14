@@ -1,12 +1,11 @@
 <div class="header">
   <div class="user-picture">
     <!-- TODO utiliser le composant user-profile-picture -->
-    <user-profile-picture></user-profile-picture>
+    <user-profile-picture [src]="post.user.pictureUrl"></user-profile-picture>
   </div>
   <div class="username">
     <!-- afficher le nom -->
     <label>{{post.user.username}}</label>
-
     <div class="date">
       <!-- afficher la date avec le pipe date -->
       <label>{{post.creationTime | date}}</label>
@@ -27,6 +26,9 @@
   </pre>
   <div *ngIf="post.content">
     <!-- afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
+      <picture-post-content *ngIf="post.content.type == 'picture'" [postContent]=post.content></picture-post-content>
+      <video-post-content *ngIf="post.content.type == 'video'" [postContent]=post.content></video-post-content>
+      <youtube-post-content *ngIf="post.content.type == 'youtube'" [postContent]=post.content></youtube-post-content>
   </div>
 </div>
 <div class="footer">

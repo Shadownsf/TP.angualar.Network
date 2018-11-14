@@ -23,8 +23,6 @@ export class PostComponent {
         // détermine le bon type de contenu
         this.post.content = this.parser.parse(this.post);
     }
-
-
     
     onComment(message: string) {
         // TODO envoyer le message
