@@ -31,8 +31,7 @@ export class PostComponent {
             }
         })
     }
-
-
+    
 
     onComment(message: string) {
         this.postService.comment(this.post, message);

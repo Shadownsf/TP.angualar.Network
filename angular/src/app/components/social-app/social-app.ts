@@ -26,8 +26,11 @@ export class SocialAppComponent implements OnInit {
         // utiliser le channelService pour récupérer la liste
         this.channelService.getAll()
             .then((value)=> {
-                this.channels = value;
-                this.router.navigate(["/channel/" + value[0].id]);
+                if(value != undefined)
+                {
+                    this.channels = value;
+                    this.router.navigate(["/channel/" + value[0].id]);
+                }
             });
 
         this.postSocket.onNewChannel((channel:Channel)=>{
