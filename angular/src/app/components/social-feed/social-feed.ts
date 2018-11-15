@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PostSocketService, PostService } from 'services';
+import { PostSocketService, PostService, NotificationService } from 'services';
 import { Post, PostContent } from 'models';
 
 @Component({
@@ -14,7 +14,8 @@ export class SocialFeedComponent implements OnInit {
     constructor(
         private postService: PostService,
         private postSocket: PostSocketService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private notification: NotificationService
     ) { }
 
     onSubmit(message: string) {
