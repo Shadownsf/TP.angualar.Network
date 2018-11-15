@@ -14,7 +14,7 @@
   <div class="right">
     <div class="actions">
       <!-- TODO liker au clic -->
-      <a [class.liked]="post.liked">
+      <a [class.liked]="post.liked" (click)="onLike(post)">
         <fa-icon [icon]="[post.liked ? 'fas' : 'far', 'heart']" size="2x"></fa-icon>
       </a>
     </div>
@@ -22,13 +22,15 @@
 </div>
 <div class="body">
   <pre class="message">
-    <label>{{post.message}}</label>
+    <article [innerHTML]="post.message|linky"></article>
   </pre>
-  <div *ngIf="post.content">
-    <!-- afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
-      <picture-post-content *ngIf="post.content.type == 'picture'" [postContent]=post.content></picture-post-content>
-      <video-post-content *ngIf="post.content.type == 'video'" [postContent]=post.content></video-post-content>
-      <youtube-post-content *ngIf="post.content.type == 'youtube'" [postContent]=post.content></youtube-post-content>
+  <div *ngIf="post.content" >
+    <div *ngFor="let content of post.content">
+      <!-- afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
+      <picture-post-content *ngIf="content.type == 'picture'" [postContent]=content></picture-post-content>
+      <video-post-content *ngIf="content.type == 'video'" [postContent]=content></video-post-content>
+      <youtube-post-content *ngIf="content.type == 'youtube'" [postContent]=content></youtube-post-content>
+    </div>
   </div>
 </div>
 <div class="footer">
@@ -40,7 +42,6 @@
         </li>
     </nz-collapse-panel>
   </nz-collapse>
-
   <user-inputs [channelId]="post.channel.id" (submitted)="onComment($event)"></user-inputs>
 </div>
 <style>
