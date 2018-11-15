@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Post, Comment } from 'models';
+import { Post, Comment, Like } from 'models';
 import { PostService, PostSocketService, LoggedUser, MessageParser } from 'services';
 
 /**
@@ -26,11 +26,19 @@ export class PostComponent {
             if (comment.post.id === this.post.id) {
                 this.post.comments.push(comment);
             }
-        })
+        });
+        this.postSocket.onLike((like:Like)=>{
+            if(like.post.id == this.post.id) this.post.liked = true;
+        });
     }
-    
 
     onComment(message: string) {
         this.postService.comment(this.post, message);
+    }
+
+    onLike(post:Post)
+    {
+        //post.liked=true;
+        this.postService.like(post);
     }
 }

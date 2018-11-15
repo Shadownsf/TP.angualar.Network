@@ -70,8 +70,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 4. Insérer les nouveaux posts reçues via WebSocket ✓
 5. Afficher une image si le message contient une url vers une image ✓
 6. Afficher une video si le message contient une url vers une vidéo  ✓(https://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4)
-7. Afficher le player de youtube si le message contient un lien youtube
-8. Ajouter le bouton like
+7. Afficher le player de youtube si le message contient un lien youtube ✓
+8. Ajouter le bouton like ✓ 
 
 ### Level II
 9. Retirer les urls des messages parsés pour ne restituer que son contenu

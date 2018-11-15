@@ -14,7 +14,7 @@
   <div class="right">
     <div class="actions">
       <!-- TODO liker au clic -->
-      <a [class.liked]="post.liked">
+      <a [class.liked]="post.liked" (click)="onLike(post)">
         <fa-icon [icon]="[post.liked ? 'fas' : 'far', 'heart']" size="2x"></fa-icon>
       </a>
     </div>
