@@ -1,41 +1,38 @@
 import { Injectable } from '@angular/core';
-import { User, Post, Like, Comment, Channel } from '../models'
+import * as models from '../models'
+import { INotification } from '../models';
 
 @Injectable()
 export class NotificationService {
-
-	User:[{ id:number, type:User, enable:boolean }];
-	Channel:[{ id:number, type:Channel, enable:boolean }];
-	Post:[{ id:number, type:Post, enable:boolean }];
-	Comment:[{ id:number, type:Comment, enable:boolean }];
-	Like:[{ id:number, type:Like, enable:boolean }];
+	
+	notifications: models.INotification<any>[] = [];
 
 	constructor() {
 	}
 
-	pushUserNotif(notification): Promise<Object> {
-		this.User.push({ id: notification.id,  type: <User>notification, enable:true });
-		return new Promise<Object>( (resolve) => { resolve(this.User); })
+	pushUserNotif(notification): Promise<INotification<any>[]> {
+		this.notifications.push(<models.UserNotification>{ tag: "User",  instance: <models.User>notification, enable:true });
+		return new Promise<models.INotification<any>[]> ( (resolve) => { resolve(this.notifications); })
 	}
 
-	pushChannelNotif(notification): Promise<Object> {
-		this.Channel.push({ id: notification.id,  type: <Channel>notification, enable:true });
-		return new Promise<Object>( (resolve) => { resolve(this.Channel); })
+	pushChannelNotif(notification): Promise<INotification<any>[]> {
+		this.notifications.push(<models.ChannelNotification>{ tag: "Channel",  instance: <models.Channel>notification, enable:true });
+		return new Promise<models.INotification<any>[]> ( (resolve) => { resolve(this.notifications); })
 	}
 
-	pushCommentNotification(notification): Promise<Object> {
-		this.Comment.push({ id: notification.id,  type: <Comment>notification, enable:true });
-		return new Promise<Object>( (resolve) => { resolve(this.Comment); })
+	pushCommentNotification(notification): Promise<INotification<any>[]> {
+		this.notifications.push(<models.CommentNotification>{ tag: "Comment",  instance: <models.Comment>notification, enable:true });
+		return new Promise<models.INotification<any>[]> ( (resolve) => { resolve(this.notifications); })
 	}
 
-	pushPostNotification(notification): Promise<Object> {
-		this.Post.push({ id: notification.id,  type: <Post>notification, enable:true });
-		return new Promise<Object>( (resolve) => { resolve(this.Post); })
+	pushPostNotification(notification): Promise<INotification<any>[]> {
+		this.notifications.push(<models.PostNotification>{ tag: "Post",  instance: <models.Post>notification, enable:true });
+		return new Promise<models.INotification<any>[]> ( (resolve) => { resolve(this.notifications); })
 	}
 	
-	pushLikeNotification(notification): Promise<Object> {
-		this.Like.push({ id: notification.id,  type: <Like>notification, enable:true });
-		return new Promise<Object>( (resolve) => { resolve(this.Like); })
+	pushLikeNotification(notification): Promise<INotification<any>[]> {
+		this.notifications.push(<models.LikeNotification>{ tag: "Like",  instance: <models.Like>notification, enable:true });
+		return new Promise<models.INotification<any>[]> ( (resolve) => { resolve(this.notifications); })
 	}
 }
 

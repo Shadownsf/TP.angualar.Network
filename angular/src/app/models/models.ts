@@ -97,3 +97,31 @@ export class YoutubePostContent extends PostContent<YoutubeContent> {
         });
     }
 }
+
+export abstract class INotification<T> {
+    tag: string;
+    instance: T;
+    enable: boolean;
+
+    constructor(tag: string, instance: T, enable: boolean)
+    constructor(tag: string, instance: T, enable: boolean= true) {
+        this.tag = tag;
+        this.instance = instance;
+        this.enable = enable;
+    }
+}
+
+export class UserNotification extends INotification<User>{
+}
+
+export class ChannelNotification extends INotification<Channel>{
+}
+
+export class PostNotification extends INotification<Post>{
+}
+
+export class LikeNotification extends INotification<Like>{
+}
+
+export class CommentNotification extends INotification<Comment>{
+}
