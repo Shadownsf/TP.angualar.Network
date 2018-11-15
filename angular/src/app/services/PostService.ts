@@ -50,8 +50,7 @@ export class PostService {
      * @param message contenu du commentaire
      */
     comment(post: Post, message: string): Promise<any> {
-        post.user = this.user;
-
+        //post.user = this.user;
         return this.http
             .post(`${this.config.url}/api/post/${post.id}/comment`, { message })
             .toPromise();

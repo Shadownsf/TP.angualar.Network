@@ -22,16 +22,9 @@
 </div>
 <div class="body">
   <pre class="message">
-    <article [innerHTML]="post.message|linky"></article>
+    <label [innerHTML]="post.message|linky"></label>
   </pre>
-  <div *ngIf="post.content" >
-    <div *ngFor="let content of post.content">
-      <!-- afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
-      <picture-post-content *ngIf="content.type == 'picture'" [postContent]=content></picture-post-content>
-      <video-post-content *ngIf="content.type == 'video'" [postContent]=content></video-post-content>
-      <youtube-post-content *ngIf="content.type == 'youtube'" [postContent]=content></youtube-post-content>
-    </div>
-  </div>
+  <post-content *ngIf="post.content" [contents]="post.content"></post-content>
 </div>
 <div class="footer">
   <nz-collapse [nzBordered]="false" *ngIf="post.comments && post.comments.length > 0">

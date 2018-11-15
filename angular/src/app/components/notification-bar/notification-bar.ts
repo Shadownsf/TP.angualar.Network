@@ -7,11 +7,11 @@ import { Post, User, Channel, Like, Comment } from 'models';
     templateUrl: 'notification-bar.html'
 })
 export class NotificationBarComponent implements OnInit {
-    User: Promise<Object>;
-	Channel: Promise<Object>;
-	Post: Promise<Object>;
-	Comment: Promise<Object>;
-	Like: Promise<Object>;
+    Users: Promise<Object>;
+	Channels: Promise<Object>;
+	Posts: Promise<Object>;
+	Comments: Promise<Object>;
+	Likes: Promise<Object>;
     
     constructor(
         private postSocket: PostSocketService,
@@ -20,19 +20,19 @@ export class NotificationBarComponent implements OnInit {
 
     ngOnInit() {
         this.postSocket.onUserConnect((user: User) => {
-            this.User = this.notificationService.pushUserNotif(user)
+            this.Users = this.notificationService.pushUserNotif(user)
         });
         this.postSocket.onNewChannel((channel: Channel) => {
-            this.Channel = this.notificationService.pushChannelNotif(channel);
+            this.Channels = this.notificationService.pushChannelNotif(channel);
         });
         this.postSocket.onPost((post: Post) => {
-            this.Post = this.notificationService.pushPostNotification(post);
+            this.Posts = this.notificationService.pushPostNotification(post);
         });
         this.postSocket.onLike((like: Like) => {
-            this.Comment = this.notificationService.pushLikeNotification(like);
+            this.Comments = this.notificationService.pushLikeNotification(like);
         });
         this.postSocket.onComment((comment: Comment) => {
-            this.Like = this.notificationService.pushCommentNotification(comment);
+            this.Likes = this.notificationService.pushCommentNotification(comment);
         });
      }
 }
