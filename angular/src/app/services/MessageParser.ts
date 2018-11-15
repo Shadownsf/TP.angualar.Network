@@ -18,28 +18,33 @@ const youtubeRegex = /(http[s]?:\/\/)?www\.(?:youtube\.com\/\S*(?:(?:\/e(?:mbed)
  */
 export class MessageParser {
 
-    parse(post: Post): PostContent<any> {
-        const pictureMatche = pictureRegex.exec(post.message);
-        if (pictureMatche) {
-            // retourner une instance de PicturePostContent
-            return new PicturePostContent(pictureMatche[0]);
-            
-        }
-        const videoMatche = videoRegex.exec(post.message);
-        if (videoMatche) {
-            // retourner une instance de VideoPostContent si match
-            return new VideoPostContent(videoMatche[0])
-        }
-        const youtubeMatche = youtubeRegex.exec(post.message);
-        if (youtubeMatche) {
-            // retourner une instance de YoutubePostContent si match
-            return new YoutubePostContent(youtubeMatche[2]);
-        }
-        return null;
+    parse(post: Post): PostContent<any>[] {
+        var postContents:PostContent<any>[]=[];
+
+        // retourner DES instanceS de PicturePostContent
+        var pictureMatche;
+        while ((pictureMatche = pictureRegex.exec(post.message)) !== null) {
+            postContents.push(new PicturePostContent(pictureMatche[0]));
+            }
+        // retourner DES instanceS de VideoPostContent si match
+        var videoMatche;
+        while ((videoMatche = videoRegex.exec(post.message)) !== null) {
+            postContents.push(new VideoPostContent(videoMatche[0]));
+            }
+        // retourner DES instanceS de YoutubePostContent si match
+        var youtubeMatche;
+        while ((youtubeMatche = youtubeRegex.exec(post.message)) !== null) {
+            postContents.push(new YoutubePostContent(youtubeMatche[0]));
+            }
+        return postContents;
     }
     clean(post: Post):string {
         //loop quand il y aura plusieurs type/fois de contenu
-        return post.message.replace(eval(post.content.type+"Regex"),'');
+        let contentTypes = post.content.map(content=>content.type);
+        contentTypes.map(contentType=>{ 
+            post.message = post.message.replace(eval(contentType+"Regex"),'');
+        })
+        return post.message;
     }
     /*
     addUrlHtml(post :Post):string{

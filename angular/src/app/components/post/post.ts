@@ -22,7 +22,7 @@ export class PostComponent {
     ngOnInit() {
         // détermine le bon type de contenu
         this.post.content = this.parser.parse(this.post);
-        //nettoie les messages parsé s'il y en a
+        //nettoie les messages de leur contenu parsé s'il y en a
         if(this.post.content!=null) this.post.message = this.parser.clean(this.post);
         //ajoute les url
         //abonnement aux nouvaux commentaire ou aux likes

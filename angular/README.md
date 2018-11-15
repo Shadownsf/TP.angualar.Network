@@ -77,7 +77,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 9. Retirer les urls des messages parsés pour ne restituer que son contenu ✓
 
 ### Level III
-10. Pouvoir parser plusieurs type de contenus dans un seul post
+10. Pouvoir parser plusieurs type de contenus dans un seul post ✓
 11. Remplacer les liens http par des balises <a>...</a>. ✓
 
 ### Commentaires
