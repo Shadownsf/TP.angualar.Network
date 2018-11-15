@@ -99,15 +99,15 @@ export class YoutubePostContent extends PostContent<YoutubeContent> {
 }
 
 export abstract class INotification<T> {
-    tag: string;
+    id: string;
+    type: string;
     instance: T;
-    enable: boolean;
 
-    constructor(tag: string, instance: T, enable: boolean)
-    constructor(tag: string, instance: T, enable: boolean= true) {
-        this.tag = tag;
+    constructor(id: string, type: string, instance: T)
+    constructor(id: string, type: string, instance: T) {
+        this.id = id;
+        this.type = type;
         this.instance = instance;
-        this.enable = enable;
     }
 }
 

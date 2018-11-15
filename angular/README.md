@@ -95,16 +95,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ### Level I
 1. Créer un NotificationService ✓
-2. Lister les activités dans le menu à droite
-3. Ajouter une activté lors d'un nouveau post via le NotificationService
-4. Ajouter une activté lors d'un commentaire sur un post via le NotificationService
-5. Ajouter une activté lorsqu'un membre se connecte via le NotificationService
-6. Ajouter une activité lors d'un like via le NotificationService
-7. Ajouter une activité lors de l'ajout d'un channel via le NotificationService
+2. Lister les activités dans le menu à droite  ✓
+3. Ajouter une activté lors d'un nouveau post via le NotificationService  ✓
+4. Ajouter une activté lors d'un commentaire sur un post via le NotificationService  ✓
+5. Ajouter une activté lorsqu'un membre se connecte via le NotificationService  ✓
+6. Ajouter une activité lors d'un like via le NotificationService  ✓
+7. Ajouter une activité lors de l'ajout d'un channel via le NotificationService  ✓
 
 ### Level II
 8. Afficher [une popup de notification](https://ng.ant.design/components/notification/en) pour chaque nouvelle activité
-9. Persister les activités dans le [localStorage](https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage) de façon à pouvoir les récupérer au realod de la page
+9. Persister les activités dans le [localStorage](https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage) de façon à pouvoir les récupérer au realod de la page ✓
 
 ### Level III
 10. Créer un service permettant de poster des [notifications web](https://developer.mozilla.org/fr/docs/Web/API/notification/Using_Web_Notifications) 

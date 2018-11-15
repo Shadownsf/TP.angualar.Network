@@ -17,7 +17,10 @@ export class NotificationBarComponent implements OnInit {
 
     ngOnInit() {
         this.postSocket.onUserConnect((user: User) => {
-            this.notifications = this.notificationService.pushUserNotif(user)
+            this.notifications = this.notificationService.pushUserNotif(user);
+
+            this.notifications.then((notification)=>{
+            });
         });
         this.postSocket.onNewChannel((channel: Channel) => {
             this.notifications = this.notificationService.pushChannelNotif(channel);
