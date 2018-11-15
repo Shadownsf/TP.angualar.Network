@@ -89,12 +89,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 4. Insérer les nouveaux commentaires reçues via WebSocket ✓
 
 ### Level II
-5. Parser les commentaires comme les posts : extraire les images, vidéos...
+5. Parser les commentaires comme les posts : extraire les images, vidéos... ✓
 
 ### Activités et notifications 
 
 ### Level I
-1. Créer un NotificationService
+1. Créer un NotificationService ✓
 2. Lister les activités dans le menu à droite
 3. Ajouter une activté lors d'un nouveau post via le NotificationService
 4. Ajouter une activté lors d'un commentaire sur un post via le NotificationService

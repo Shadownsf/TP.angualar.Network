@@ -13,12 +13,11 @@
         <label>{{comment.creationTime | date}}</label>
         </div>
     </div>
-    </div>
-    <div class="body">
+</div>
+<div class="body">
     <pre class="message">
-        <label>{{comment.message}}</label>
+        <label [innerHTML]="comment.message|linky"></label>
     </pre>
-    <div *ngIf="comment.content">
-        <!-- afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
-    </div>
+    <!-- afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
+    <post-content *ngIf="comment.content" [contents]="comment.content"></post-content>
 </div>

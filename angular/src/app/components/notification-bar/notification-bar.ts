@@ -8,11 +8,7 @@ import { Post, User, Channel, Like, Comment, INotification } from 'models';
 })
 export class NotificationBarComponent implements OnInit {
     notifications: Promise<INotification<any>[]>;
-    // Users: Promise<Object>;
-	// Channels: Promise<Object>;
-	// Posts: Promise<Object>;
-	// Comments: Promise<Object>;
-	// Likes: Promise<Object>;
+  
     
     constructor(
         private postSocket: PostSocketService,

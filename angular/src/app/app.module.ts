@@ -39,6 +39,7 @@ library.add(fas, far);
         components.UserInputsComponent,
         components.VideoFeedContentComponent,
         components.YoutubeFeedContentComponent,
+        components.PostContentComponent,
         components.UserProfilePictureComponent,
     ],
     imports: [
