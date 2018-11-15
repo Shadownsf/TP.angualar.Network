@@ -22,7 +22,7 @@
 </div>
 <div class="body">
   <pre class="message">
-    <label>{{post.message}}</label>
+    <article [innerHTML]="post.message|linky"></article>
   </pre>
   <div *ngIf="post.content">
     <!-- afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
@@ -40,7 +40,6 @@
         </li>
     </nz-collapse-panel>
   </nz-collapse>
-
   <user-inputs [channelId]="post.channel.id" (submitted)="onComment($event)"></user-inputs>
 </div>
 <style>

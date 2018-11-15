@@ -24,8 +24,10 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "@fortawesome/free-regular-svg-icons": "^5.5.0",
     "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "autolinker": "^1.7.1",
     "core-js": "^2.5.4",
     "ng-zorro-antd": "1.8.0",
+    "ngx-linky": "^2.0.1",
     "rxjs": "~6.3.3",
     "socket.io-client": "2.1.1",
     "zone.js": "~0.8.26"

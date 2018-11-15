@@ -22,11 +22,16 @@ export class PostComponent {
     ngOnInit() {
         // détermine le bon type de contenu
         this.post.content = this.parser.parse(this.post);
+        //nettoie les messages parsé s'il y en a
+        if(this.post.content!=null) this.post.message = this.parser.clean(this.post);
+        //ajoute les url
+        //abonnement aux nouvaux commentaire ou aux likes
         this.postSocket.onComment((comment: Comment) => {
             if (comment.post.id === this.post.id) {
                 this.post.comments.push(comment);
             }
         });
+
         this.postSocket.onLike((like:Like)=>{
             if(like.post.id == this.post.id) this.post.liked = true;
         });
@@ -38,7 +43,6 @@ export class PostComponent {
 
     onLike(post:Post)
     {
-        //post.liked=true;
         this.postService.like(post);
     }
 }
