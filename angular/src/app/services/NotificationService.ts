@@ -27,6 +27,7 @@ export class NotificationService {
 
 	pushPostNotification(notification): Promise<INotification<any>[]> {
 		this.notifications.push(<models.PostNotification>{ tag: "Post",  instance: <models.Post>notification, enable:true });
+		console.log(this.notifications);
 		return new Promise<models.INotification<any>[]> ( (resolve) => { resolve(this.notifications); })
 	}
 	

@@ -54,6 +54,15 @@ export class Like {
     post: Post;
 }
 
+export class NotificationView {
+    user: string;
+    action: string;
+    channelName: string;
+    channelId: string;
+    creationTime: number;
+    targetId: string;
+}
+
 export abstract class PostContent<T> {
     type: string;
     value: T;
