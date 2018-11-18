@@ -26,9 +26,23 @@ export class RegisterComponent {
 
     register() {
         if (this.ngForm.form.invalid) {
+            this.messageService.error;
             return;
         }
-        // TODO utiliser registrationService pour ajouter un nouvel utilisateur
-        // TODO utiliser this.router.navigate pour rediriger l'utilisateur vers la page de login
+
+        this.registrationService
+            .usernameExists(this.model.username)
+                .then((value) => {
+                    if(!value) {
+                        // TODO utiliser registrationService pour ajouter un nouvel utilisateur
+                        this.registrationService.register(this.model)
+                            .then(()=>{
+                                // TODO utiliser this.router.navigate pour rediriger l'utilisateur vers la page de login
+                                this.router.navigate(["/login"]);
+                            })
+                    } else {
+                        this.messageService.error("username already exists");
+                    }
+                });
     }
 }

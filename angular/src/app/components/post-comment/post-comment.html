@@ -1,1 +1,23 @@
 <!-- TODO afficher le message -->
+<div class="header">
+        <div class="user-picture">
+            <!-- TODO utiliser le composant user-profile-picture -->
+            <user-profile-picture [src]="comment.user.pictureUrl"></user-profile-picture>
+        </div>
+    <div class="username">
+        <!-- afficher le nom -->
+        <label>{{comment.user.username}}</label>
+    
+        <div class="date">
+        <!-- afficher la date avec le pipe date -->
+        <label>{{comment.creationTime | date}}</label>
+        </div>
+    </div>
+</div>
+<div class="body">
+    <pre class="message">
+        <label [innerHTML]="comment.message|linky"></label>
+    </pre>
+    <!-- afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
+    <post-content *ngIf="comment.content" [contents]="comment.content"></post-content>
+</div>

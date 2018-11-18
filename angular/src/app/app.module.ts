@@ -13,6 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import { LinkyModule } from 'ngx-linky';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgZorroAntdModule, NZ_I18N, fr_FR } from 'ng-zorro-antd';
@@ -38,6 +39,7 @@ library.add(fas, far);
         components.UserInputsComponent,
         components.VideoFeedContentComponent,
         components.YoutubeFeedContentComponent,
+        components.PostContentComponent,
         components.UserProfilePictureComponent,
     ],
     imports: [
@@ -55,7 +57,8 @@ library.add(fas, far);
         RouterModule.forRoot(rootRouterConfig),
         FontAwesomeModule,
         BrowserAnimationsModule,
-        NgZorroAntdModule
+        NgZorroAntdModule,
+        LinkyModule
     ],
     providers: [
         services.AuthGuard,
@@ -76,6 +79,7 @@ library.add(fas, far);
         },
         services.RegistrationService,
         { provide: NZ_I18N, useValue: fr_FR },
+        services.NotificationService,
     ],
     bootstrap: [components.AppComponent]
 })

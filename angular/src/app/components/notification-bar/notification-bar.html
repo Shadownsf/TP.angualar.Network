@@ -1,4 +1,12 @@
-
+<!-- TODO -->
+<div *ngFor="let notification of notifications">
+    <div>
+        {{notification.user}}
+        {{notification.action}}
+        <a [routerLink]="[(notification.channelId)]" class="btn btn-link">
+            {{notification.channelName}}</a>
+    </div>
+</div>
 <style>
     :host {
         display: block;

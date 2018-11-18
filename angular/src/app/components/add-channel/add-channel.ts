@@ -1,6 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ChannelService } from 'services';
+
 
 /**
  * Ajoute un nouveau channel
@@ -12,8 +13,9 @@ import { ChannelService } from 'services';
 export class AddChannelComponent {
     @ViewChild(NgForm)
     ngForm: NgForm;
-    isVisible: boolean = false;
+    @Output() newChannelEvent = new EventEmitter<any>();
 
+    isVisible: boolean = false;
     model = { name: '' };
     constructor(
         private channelService: ChannelService
@@ -30,9 +32,17 @@ export class AddChannelComponent {
     }
 
     async save() {
+
         if (this.ngForm.valid) {
             // TODO ajouter le nouveau channel
-            this.hide();
+            this.channelService.add(this.model.name)
+                .then((value)=>
+                {
+                    this.newChannelEvent.emit();
+                }, reason => {
+                    console.error( reason );
+                });
         }
+        this.hide();
     }
 }

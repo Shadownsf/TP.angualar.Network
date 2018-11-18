@@ -39,7 +39,7 @@ export class Post {
     creationTime: number;
     liked: boolean;
     message: string;
-    content?: PostContent<any>;
+    content?: PostContent<any>[];
     comments: Comment[];
 }
 
@@ -52,6 +52,15 @@ export class Like {
     creationTime: number;
     id: string;
     post: Post;
+}
+
+export class NotificationView {
+    user: string;
+    action: string;
+    channelName: string;
+    channelId: string;
+    creationTime: number;
+    targetId: string;
 }
 
 export abstract class PostContent<T> {
@@ -96,4 +105,32 @@ export class YoutubePostContent extends PostContent<YoutubeContent> {
             videoId: videoId
         });
     }
+}
+
+export abstract class INotification<T> {
+    id: string;
+    type: string;
+    instance: T;
+
+    constructor(id: string, type: string, instance: T)
+    constructor(id: string, type: string, instance: T) {
+        this.id = id;
+        this.type = type;
+        this.instance = instance;
+    }
+}
+
+export class UserNotification extends INotification<User>{
+}
+
+export class ChannelNotification extends INotification<Channel>{
+}
+
+export class PostNotification extends INotification<Post>{
+}
+
+export class LikeNotification extends INotification<Like>{
+}
+
+export class CommentNotification extends INotification<Comment>{
 }

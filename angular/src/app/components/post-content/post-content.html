@@ -1,0 +1,6 @@
+<div *ngFor="let content of contents">
+    <!-- afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
+    <picture-post-content *ngIf="content.type == 'picture'" [postContent]=content></picture-post-content>
+    <video-post-content *ngIf="content.type == 'video'" [postContent]=content></video-post-content>
+    <youtube-post-content *ngIf="content.type == 'youtube'" [postContent]=content></youtube-post-content>
+</div>

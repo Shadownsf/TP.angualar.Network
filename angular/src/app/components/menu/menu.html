@@ -1,8 +1,13 @@
 <nav>
   <add-channel></add-channel>
-  <!-- TODO itérer sur les channels -->
-  <a [routerLink]=""></a>
+  <ul>
+    <!-- TODO itérer sur les channels -->
+    <li *ngFor="let channel of channels" >
+      <a [routerLink]="[(channel.id)]" class="btn btn-link">{{channel.name}}</a>
+    </li>
+  </ul>
 </nav>
+
 
 <style >
   :host {
@@ -14,6 +19,9 @@
   add-channel {
     border-bottom: 1px solid #eee;
 
+  }
+  li {
+    list-style-type: none;
   }
 
   a {

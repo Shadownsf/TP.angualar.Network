@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PostSocketService, PostService } from 'services';
-import { Post, PostContent } from 'models';
+import { PostSocketService, PostService, NotificationService } from 'services';
+import { Post, PostContent, Like } from 'models';
 
 @Component({
     selector: 'social-feed',
@@ -14,11 +14,13 @@ export class SocialFeedComponent implements OnInit {
     constructor(
         private postService: PostService,
         private postSocket: PostSocketService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private notification: NotificationService
     ) { }
 
     onSubmit(message: string) {
         //TODO utiliser le postSerice pour ajouter le message
+        this.postService.post(this.channelId, message);
     }
 
     ngOnInit() {
@@ -31,5 +33,8 @@ export class SocialFeedComponent implements OnInit {
                         this.items = items
                     });
             });
+        this.postSocket.onPost((post: Post) => {
+            this.items.push(post);
+        });
     }
 }

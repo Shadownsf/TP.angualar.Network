@@ -8,6 +8,7 @@ export * from './post/user-profile-picture.component';
 export * from './post-content/picture/picture-post-content';
 export * from './post-content/video/video-post-content';
 export * from './post-content/youtube/youtube-post-content';
+export * from './post-content/post-content';
 export * from './social-app/social-app';
 export * from './login/login';
 export * from './register/register';

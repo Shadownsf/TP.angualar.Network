@@ -1,18 +1,20 @@
-<div class="header">
+<div class="header" id="post.id">
   <div class="user-picture">
     <!-- TODO utiliser le composant user-profile-picture -->
+    <user-profile-picture [src]="post.user.pictureUrl"></user-profile-picture>
   </div>
   <div class="username">
     <!-- afficher le nom -->
-
+    <label>{{post.user.username}}</label>
     <div class="date">
       <!-- afficher la date avec le pipe date -->
+      <label>{{post.creationTime | date}}</label>
     </div>
   </div>
   <div class="right">
     <div class="actions">
       <!-- TODO liker au clic -->
-      <a [class.liked]="post.liked">
+      <a [class.liked]="post.liked" (click)="onLike(post)">
         <fa-icon [icon]="[post.liked ? 'fas' : 'far', 'heart']" size="2x"></fa-icon>
       </a>
     </div>
@@ -20,19 +22,19 @@
 </div>
 <div class="body">
   <pre class="message">
-    <!-- afficher le message -->
+    <label [innerHTML]="post.message|linky"></label>
   </pre>
-  <div *ngIf="post.content">
-    <!-- afficher les bons composants picture-post-content, youtube-post-content ou video-post-content en fonction du type de contenu -->
-  </div>
+  <post-content *ngIf="post.content" [contents]="post.content"></post-content>
 </div>
 <div class="footer">
   <nz-collapse [nzBordered]="false" *ngIf="post.comments && post.comments.length > 0">
     <nz-collapse-panel [nzHeader]="post.comments.length +' commentaire' + (post.comments.length > 1 ? 's' : '')">
         <!-- TODO afficher le liste des posts avec post-component -->
+        <li *ngFor="let comment of post.comments">
+          <post-comment [comment]="comment"></post-comment>
+        </li>
     </nz-collapse-panel>
   </nz-collapse>
-
   <user-inputs [channelId]="post.channel.id" (submitted)="onComment($event)"></user-inputs>
 </div>
 <style>
